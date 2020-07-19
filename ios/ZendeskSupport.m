@@ -5,11 +5,11 @@
 #import "RCTConvert.h"
 #endif
 
-#import "RNZendeskSupport.h"
+#import "ZendeskSupport.h"
 #import <ZendeskCoreSDK/ZendeskCoreSDK.h>
 #import <SupportSDK/SupportSDK.h>
 
-@implementation RNZendeskSupport
+@implementation ZendeskSupport
 
 RCT_EXPORT_MODULE();
 
@@ -23,24 +23,22 @@ RCT_EXPORT_METHOD(initialize:(NSDictionary *)params){
 
 }
 
-RCT_EXPORT_METHOD(setIdentity:(NSDictionary *)params){
+RCT_EXPORT_METHOD(setAnonymousIdentity:(NSDictionary *)params){
     dispatch_async(dispatch_get_main_queue(), ^{
         
         NSString *email = [RCTConvert NSString:params[@"email"]];
         NSString *name = [RCTConvert NSString:params[@"name"]];
         
-        id<ZDKObjCIdentity> userIdentity = [[ZDKObjCAnonymous alloc] initWithName:nil email:nil];
+        id<ZDKObjCIdentity> userIdentity = [[ZDKObjCAnonymous alloc] initWithName:name email:email];
         [[ZDKZendesk instance] setIdentity:userIdentity];
         
     });
 }
 
-RCT_EXPORT_METHOD(setIdentityWithJwt:(NSDictionary *)params){
+RCT_EXPORT_METHOD(setJwtIdentity:(NSDictionary *)params){
     dispatch_async(dispatch_get_main_queue(), ^{
         
         NSString *token = [RCTConvert NSString:params[@"token"]];
-        NSLog(@"%@", @"token");
-        NSLog(@"%@", token);
         
         id<ZDKObjCIdentity> userIdentity = [[ZDKObjCJwt alloc] initWithToken:token];
         [[ZDKZendesk instance] setIdentity:userIdentity];

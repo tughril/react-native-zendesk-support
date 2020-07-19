@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 #import <React/RCTBridgeModule.h>
 
-@interface RNZenDeskSupport : NSObject <RCTBridgeModule>
+@interface ZendeskSupport : NSObject <RCTBridgeModule>
 
 @end
