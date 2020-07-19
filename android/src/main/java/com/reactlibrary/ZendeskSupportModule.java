@@ -1,10 +1,22 @@
 package com.reactlibrary;
 
+import android.content.Context;
+import android.content.Intent;
+
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.Promise;
+import com.facebook.react.bridge.ReadableMap;
+import com.zendesk.service.ErrorResponse;
+import com.zendesk.service.ZendeskCallback;
+import zendesk.core.Zendesk;
+import zendesk.core.Identity;
+import zendesk.core.AnonymousIdentity;
+import zendesk.core.JwtIdentity;
+import zendesk.support.Support;
 import zendesk.support.request.RequestActivity;
+import zendesk.support.requestlist.RequestListActivity;
 
 public class ZendeskSupportModule extends ReactContextBaseJavaModule {
 
@@ -27,7 +39,8 @@ public class ZendeskSupportModule extends ReactContextBaseJavaModule {
         String zendeskUrl = params.getString("zendeskUrl");
         String clientId = params.getString("clientId");
 
-        Zendesk.INSTANCE.init(getReactApplicationContext(), zendeskUrl, appId, clientId);
+        Zendesk.INSTANCE.init(getCurrentActivity(), zendeskUrl, appId, clientId);
+        Support.INSTANCE.init(Zendesk.INSTANCE);
 
     }
 
@@ -41,11 +54,12 @@ public class ZendeskSupportModule extends ReactContextBaseJavaModule {
         .withNameIdentifier(name)
         .withEmailIdentifier(email)
         .build();
+        Zendesk.INSTANCE.setIdentity(identity);
 
     }
 
     @ReactMethod
-    public void setIdentityWithJwt(ReadableMap params) {
+    public void setJwtIdentity(ReadableMap params) {
         
         String token = params.getString("token");
 
@@ -58,7 +72,7 @@ public class ZendeskSupportModule extends ReactContextBaseJavaModule {
     public void showRequestRequestList() {
         
         RequestListActivity.builder()
-        .show(getReactApplicationContext());
+        .show(getCurrentActivity());
 
     }
 
@@ -66,7 +80,7 @@ public class ZendeskSupportModule extends ReactContextBaseJavaModule {
     public void showRequestUi() {
         
         RequestActivity.builder()
-        .show(getReactApplicationContext());
+        .show(getCurrentActivity());
 
     }
 
@@ -77,7 +91,7 @@ public class ZendeskSupportModule extends ReactContextBaseJavaModule {
 
         RequestActivity.builder()
         .withRequestId(requestId)
-        .show(getReactApplicationContext());
+        .show(getCurrentActivity());
 
     }
 
