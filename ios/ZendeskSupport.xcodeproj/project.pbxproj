@@ -6,6 +6,11 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		164369D624AF20DA00135BF8 /* ZendeskSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 164369D424AF20DA00135BF8 /* ZendeskSupport.m */; };
+		6D5B28DD55C563EEE8CD8345 /* libPods-ZendeskSupport.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B62CE93D3A474139D91994 /* libPods-ZendeskSupport.a */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		58B511D91A9E6C8500147676 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -20,6 +25,12 @@
 
 /* Begin PBXFileReference section */
 		134814201AA4EA6300B7C361 /* libZendeskSupport.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libZendeskSupport.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		164369D324AF20DA00135BF8 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		164369D424AF20DA00135BF8 /* ZendeskSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZendeskSupport.m; sourceTree = "<group>"; };
+		164369D524AF20DA00135BF8 /* ZendeskSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZendeskSupport.h; sourceTree = "<group>"; };
+		2A5D1FAC58FEFDCB3835BBA1 /* Pods-ZendeskSupport.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZendeskSupport.release.xcconfig"; path = "Target Support Files/Pods-ZendeskSupport/Pods-ZendeskSupport.release.xcconfig"; sourceTree = "<group>"; };
+		33B62CE93D3A474139D91994 /* libPods-ZendeskSupport.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ZendeskSupport.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		686D38D9706B7339B6F6C885 /* Pods-ZendeskSupport.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZendeskSupport.debug.xcconfig"; path = "Target Support Files/Pods-ZendeskSupport/Pods-ZendeskSupport.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D5B28DD55C563EEE8CD8345 /* libPods-ZendeskSupport.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,8 +56,31 @@
 		58B511D21A9E6C8500147676 = {
 			isa = PBXGroup;
 			children = (
+				164369D324AF20DA00135BF8 /* Podfile */,
+				164369D524AF20DA00135BF8 /* ZendeskSupport.h */,
+				164369D424AF20DA00135BF8 /* ZendeskSupport.m */,
 				134814211AA4EA7D00B7C361 /* Products */,
+				788057D663645A398128E9B5 /* Pods */,
+				9CCB3587AEBADAC7647F3C19 /* Frameworks */,
 			);
+			sourceTree = "<group>";
+		};
+		788057D663645A398128E9B5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				686D38D9706B7339B6F6C885 /* Pods-ZendeskSupport.debug.xcconfig */,
+				2A5D1FAC58FEFDCB3835BBA1 /* Pods-ZendeskSupport.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		9CCB3587AEBADAC7647F3C19 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				33B62CE93D3A474139D91994 /* libPods-ZendeskSupport.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -55,6 +90,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget "ZendeskSupport" */;
 			buildPhases = (
+				5AE9D0F1BE1AD96149940EAB /* [CP] Check Pods Manifest.lock */,
 				58B511D71A9E6C8500147676 /* Sources */,
 				58B511D81A9E6C8500147676 /* Frameworks */,
 				58B511D91A9E6C8500147676 /* CopyFiles */,
@@ -100,11 +136,37 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5AE9D0F1BE1AD96149940EAB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ZendeskSupport-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		58B511D71A9E6C8500147676 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				164369D624AF20DA00135BF8 /* ZendeskSupport.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,6 +286,7 @@
 		};
 		58B511F01A9E6C8500147676 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 686D38D9706B7339B6F6C885 /* Pods-ZendeskSupport.debug.xcconfig */;
 			buildSettings = {
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -240,6 +303,7 @@
 		};
 		58B511F11A9E6C8500147676 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2A5D1FAC58FEFDCB3835BBA1 /* Pods-ZendeskSupport.release.xcconfig */;
 			buildSettings = {
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",

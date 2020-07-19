@@ -1,11 +1,11 @@
 # Uncomment the next line to define a global platform for your project
 source 'https://github.com/CocoaPods/Specs.git'
 
-platform :ios, '9.0'
+platform :ios, '10.0'
 
 target 'ZendeskSupport' do
-  pod 'React', path: '../node_modules/react-native'
-  pod 'React-Core', :path => '../node_modules/react-native/'
+  pod 'React', path: '../node_modules/react-native/React.podspec'
+  pod 'React-Core', :path => '../node_modules/react-native/React-Core.podspec'
   pod 'React-RCTActionSheet', :path => '../node_modules/react-native/Libraries/ActionSheetIOS'
   pod 'React-RCTAnimation', :path => '../node_modules/react-native/Libraries/NativeAnimation'
   pod 'React-RCTBlob', :path => '../node_modules/react-native/Libraries/Blob'
@@ -22,10 +22,12 @@ target 'ZendeskSupport' do
   pod 'RCTTypeSafety', :path => "../node_modules/react-native/Libraries/TypeSafety"
   pod 'ReactCommon/turbomodule/core', :path => "../node_modules/react-native/ReactCommon"
   pod 'FBReactNativeSpec', :path => "../node_modules/react-native/Libraries/FBReactNativeSpec"
-  pod 'FBLazyVector', :path => "../node_modules//react-native/Libraries/FBLazyVector"
-  pod 'React-jsinspector', :path => "../node_modules//react-native/ReactCommon/jsinspector"
-  pod 'RCTRequired', :path => "../node_modules//react-native/Libraries/RCTRequired"
-  pod 'Folly', :path => "../node_modules//react-native/third-party-podspecs"
+  pod 'FBLazyVector', :path => "../node_modules/react-native/Libraries/FBLazyVector"
+  pod 'React-jsinspector', :path => "../node_modules/react-native/ReactCommon/jsinspector"
+  pod 'RCTRequired', :path => "../node_modules/react-native/Libraries/RCTRequired"
+  pod 'Folly', :path => "../node_modules/react-native/third-party-podspecs/Folly.podspec"
+  
+  pod 'ZendeskSupportSDK'
+  pod 'ZendeskSupportProvidersSDK'
 
-  # pod 'react-native-zendesk-support', path: '..'
 end
