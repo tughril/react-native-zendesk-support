@@ -1,5 +1,5 @@
 import { NativeModules } from 'react-native';
 
-const { RNZendeskSupport } = NativeModules;
+const { ZendeskSupport } = NativeModules;
 
-export default RNZendeskSupport;
+export default ZendeskSupport;
