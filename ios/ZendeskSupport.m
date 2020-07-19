@@ -5,7 +5,7 @@
 #import "RCTConvert.h"
 #endif
 
-#import "RNZendeskSupport.h"
+#import "ZendeskSupport.h"
 #import <ZendeskCoreSDK/ZendeskCoreSDK.h>
 #import <SupportSDK/SupportSDK.h>
 
@@ -39,8 +39,6 @@ RCT_EXPORT_METHOD(setIdentityWithJwt:(NSDictionary *)params){
     dispatch_async(dispatch_get_main_queue(), ^{
         
         NSString *token = [RCTConvert NSString:params[@"token"]];
-        NSLog(@"%@", @"token");
-        NSLog(@"%@", token);
         
         id<ZDKObjCIdentity> userIdentity = [[ZDKObjCJwt alloc] initWithToken:token];
         [[ZDKZendesk instance] setIdentity:userIdentity];
