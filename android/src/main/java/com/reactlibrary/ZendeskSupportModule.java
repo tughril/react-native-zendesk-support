@@ -45,7 +45,7 @@ public class ZendeskSupportModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void setIdentityWithJwt(ReadableMap params) {
+    public void setJwtIdentity(ReadableMap params) {
         
         String token = params.getString("token");
 
