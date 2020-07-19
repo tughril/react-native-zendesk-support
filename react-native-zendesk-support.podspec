@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
                    DESC
   s.homepage     = "https://github.com/tughril/react-native-zendesk-support"
   s.license      = { :type => "MIT", :file => "LICENSE" }
-  s.authors      = {}
+  s.authors      = { 'Takashi Ono' => 'morninglory.tug@gmail.com' }
   s.platforms    = { :ios => "10.0" }
   s.source       = { :git => "https://github.com/tughril/react-native-zendesk-support.git", :tag => "#{s.version}" }
 
